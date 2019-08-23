@@ -11,15 +11,16 @@
       href="https://fonts.googleapis.com/css?family=Kalam:300,400,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./main.css" />
-    <script defer type="text/javascript" src="./main.js"></script>
+    <link rel="stylesheet" href="./app.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script defer type="text/javascript" src="./app.js"></script>
   </head>
   <body>
     <div class="title-div">
       <div class="title-img"></div>
       <h1 id="h1-title">AwwDorable Downloads</h1>
       <p id="p-title">Save Quality Photos of Perfect Pets</p>
-      <a class="btn1" id="a-title" href="#instructions">Scroll</a>
+      <a class="btn1" id="a-title" onclick="scrollToTop()">Scroll</a>
     </div>
 
     <div id="instructions">
@@ -45,6 +46,6 @@
 
     <form id="download-form"></form>
 
-    <a class="btn1 hide-to-top" id="a-top" href="#instructions">Top</a>
+    <a class="btn1 hide-to-top" id="a-top" onclick="scrollToTop()">Top</a>
   </body>
 </html>

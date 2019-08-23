@@ -1,6 +1,6 @@
 console.log("Hello! We're Online!!");
 // Store  placement of navbar
-const sticky = navbar.offsetTop;
+let sticky;
 
 // AJAX call (GET) request to "./images" for our data
 // const getPhotos = () => {
@@ -220,6 +220,7 @@ const createImage = imgObj => {
   img.setAttribute("src", imgObj.url);
   img.classList.add("image");
   img.setAttribute("alt", imgObj.description);
+  img.classList.add("lozad");
   // Image Overlay
   const imgOverlay = document.createElement("div");
   imgOverlay.classList.add("image-overlay");
@@ -325,6 +326,10 @@ const downloadResource = (url, filename) => {
     .catch(e => console.error(e));
 };
 
+const getNavbar = () => {
+  sticky = navbar.offsetTop;
+};
+
 const stickyNav = () => {
   const navbar = document.getElementById("navbar");
   const toTopBtn = document.getElementById("a-top");
@@ -338,8 +343,16 @@ const stickyNav = () => {
   }
 };
 
+const scrollToTop = () => {
+  document.getElementById("instructions").scrollIntoView(true);
+};
+
+const observer = lozad();
+
 // On load, get photos
+observer.observe();
 getPhotos();
+getNavbar();
 window.onscroll = () => {
   stickyNav();
 };
