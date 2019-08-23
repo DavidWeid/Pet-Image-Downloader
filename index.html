@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta
+      http-equiv="content-type"
+      content="application/xhtml+xml; charset=UTF-8"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Challenge</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kalam:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./app.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="title-div">
+      <div class="title-img"></div>
+      <h1 id="h1-title">AwwDorable Downloads</h1>
+      <p id="p-title">Save Quality Photos of Perfect Pets</p>
+      <a class="btn1" id="a-title" href="#instructions">Scroll</a>
+    </div>
+
+    <div id="instructions">
+      <div class="instruction-div">
+        <p class="instruct">Browse</p>
+        <p class="instruct">Download</p>
+        <p class="instruct">Enjoy</p>
+      </div>
+    </div>
+    <div id="navbar">
+      <a class="btn2" id="show-download-btn" onclick="showDownloads()"
+        >Select Pictures</a
+      >
+      <a
+        type="button"
+        id="submit-download-btn"
+        class="hideable select-box-hide btn2"
+        onclick="event.preventDefault(); downloadSelected();"
+        >Confirm</a
+      >
+    </div>
+
+    <form id="download-form"></form>
+
+    <a class="btn1 hide-to-top" id="a-top" href="#instructions">Top</a>
+  </body>
+</html>
