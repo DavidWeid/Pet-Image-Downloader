@@ -1,28 +1,9 @@
-console.log("Hello! We're Online!!");
-// Store  placement of navbar
+console.log("Hello! We are Online!");
+
+// Store placement of navbar
 let sticky;
 
 // AJAX call (GET) request to "./images" for our data
-// const getPhotos = () => {
-//   const Http = new XMLHttpRequest();
-//   const url = "./images";
-//   Http.open("GET", url);
-//   Http.send();
-//   Http.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//       // Convert string to JSON
-//       // imgArray is an array of objects (each object is our image and details)
-//       const imgArray = JSON.parse(Http.responseText);
-//       console.log(imgArray);
-//       console.log(imgArray[0]);
-//       // Loop through array and create our images
-//       for (let i = 0; i < imgArray.length; i++) {
-//         createImage(imgArray[i]);
-//       }
-//     }
-//   };
-// };
-
 const getPhotos = () => {
   const photoArray = [
     {
@@ -189,7 +170,8 @@ const getPhotos = () => {
   }
 };
 
-// Create our Image Card: image, overlay, info, checkboxes and append to our form
+// Create our Image Card: image, overlay, info, checkboxes and append to our
+// form
 const createImage = imgObj => {
   // Date-related
   const time = imgObj.created;
@@ -220,7 +202,6 @@ const createImage = imgObj => {
   img.setAttribute("src", imgObj.url);
   img.classList.add("image");
   img.setAttribute("alt", imgObj.description);
-  img.classList.add("lozad");
   // Image Overlay
   const imgOverlay = document.createElement("div");
   imgOverlay.classList.add("image-overlay");
@@ -281,7 +262,7 @@ const showDownloads = () => {
 const downloadSelected = () => {
   console.log("Form Submit Clicked");
   const selectBoxes = document.getElementsByClassName("select-box");
-  console.log(selectBoxes);
+  // console.log(selectBoxes); // selectBoxes is an HTMLCollection
   for (let item of selectBoxes) {
     if (item.checked) {
       let url = item.value;
@@ -293,12 +274,12 @@ const downloadSelected = () => {
   showDownloads();
 };
 
-// To download photos, call 'downloadResource() with 'url' and 'filename' arguments
+// To download photos, call 'downloadResource() with 'url' and 'filename'
+// arguments
 const forceDownload = (blob, filename) => {
   var a = document.createElement("a");
   a.download = filename;
   a.href = blob;
-  // For Firefox https://stackoverflow.com/a/32226068
   document.body.appendChild(a);
   a.click();
   a.remove();
@@ -326,10 +307,13 @@ const downloadResource = (url, filename) => {
     .catch(e => console.error(e));
 };
 
+// Grab navbar's location
 const getNavbar = () => {
   sticky = navbar.offsetTop;
 };
 
+// Make navbar stick when scrolling past it
+// Make "To Top" btn visible
 const stickyNav = () => {
   const navbar = document.getElementById("navbar");
   const toTopBtn = document.getElementById("a-top");
@@ -347,12 +331,12 @@ const scrollToTop = () => {
   document.getElementById("instructions").scrollIntoView(true);
 };
 
-const observer = lozad();
-
-// On load, get photos
-observer.observe();
+// On load, get photos, get navbar location
 getPhotos();
 getNavbar();
+// Listen for scroll
 window.onscroll = () => {
   stickyNav();
 };
+
+/* Thank You for the opportunity to code out this simple website design */
