@@ -2,6 +2,8 @@ console.log("Hello! We are Online!");
 
 // Store placement of navbar
 let sticky;
+// Instantiate Lozad
+const observer = lozad();
 
 // AJAX call (GET) request to "./images" for our data
 const getPhotos = () => {
@@ -245,6 +247,8 @@ const createImage = imgObj => {
   imgContainer.appendChild(imgCheckbox);
   imgContainer.appendChild(imgCheckboxCustom);
   document.getElementById("download-form").appendChild(imgContainer);
+
+  observer.observe();
 };
 
 // Toggle checkbox for selecting images to download
@@ -331,7 +335,8 @@ const scrollToTop = () => {
   document.getElementById("instructions").scrollIntoView(true);
 };
 
-// On load, get photos, get navbar location
+// On load, start lozad for lazy load of images, get photos, get navbar location
+observer.observe();
 getPhotos();
 getNavbar();
 // Listen for scroll
